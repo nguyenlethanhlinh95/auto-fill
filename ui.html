@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Figma Plugin</title>
+  </head>
+  <body>
+    <div id="container">
+      <label for="textArea">Enter values: </label><span style="color: red">(*required)</span>
+      <textarea id="textArea" rows="5" cols="30"></textarea>
+      <button class="mt-2" id="submitButton" type="button">Submit</button>
+    </div>
+
+    <script src="code.js"></script>
+    <script>
+      document.getElementById('submitButton').addEventListener('click', function() {
+        var textareaValue = document.getElementById('textArea').value;
+        textareaValue = textareaValue.trim();
+        if (textareaValue === '') {
+          textareaValue = null;
+        }
+        const data = textareaValue ? textareaValue.split('\n') : [];
+        parent.postMessage({ pluginMessage: { type: 'buttonClick', data: data }}, '*');
+      });
+    </script>
+  </body>
+</html>
