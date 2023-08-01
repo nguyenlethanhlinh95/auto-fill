@@ -1,14 +1,7 @@
 figma.showUI(__html__);
 
-// figma.on("selectionchange", () => {
-//     console.log(figma.currentPage.selection);
-// });
-
-async function setCharactersForTextLayer(layer:any, newCharacters:string) {
-  // Tải font cần thiết nếu chưa được tải
-  await figma.loadFontAsync({ family: "Inter", style: "Regular" });
-
-  // Set lại giá trị text của layer văn bản
+const setCharactersForTextLayer = async function setCharactersForTextLayer(layer:any, newCharacters:string) {
+  await figma.loadFontAsync({ family: layer.fontName.family, style: layer.fontName.style });
   layer.characters = newCharacters;
 }
 

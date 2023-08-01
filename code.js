@@ -36,26 +36,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 figma.showUI(__html__);
-// figma.on("selectionchange", () => {
-//     console.log(figma.currentPage.selection);
-// });
-function setCharactersForTextLayer(layer, newCharacters) {
+var setCharactersForTextLayer = function setCharactersForTextLayer(layer, newCharacters) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: 
-                // Tải font cần thiết nếu chưa được tải
-                return [4 /*yield*/, figma.loadFontAsync({ family: "Inter", style: "Regular" })];
+                case 0: return [4 /*yield*/, figma.loadFontAsync({ family: layer.fontName.family, style: layer.fontName.style })];
                 case 1:
-                    // Tải font cần thiết nếu chưa được tải
                     _a.sent();
-                    // Set lại giá trị text của layer văn bản
                     layer.characters = newCharacters;
                     return [2 /*return*/];
             }
         });
     });
-}
+};
 figma.ui.onmessage = function (msg) {
     if (msg.type === 'buttonClick') {
         var selectedLayers = figma.currentPage.selection;
