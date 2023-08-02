@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 figma.showUI(__html__);
+figma.ui.resize(382, 415);
 var setCharactersForTextLayer = function setCharactersForTextLayer(layer, newCharacters) {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
