@@ -1,5 +1,5 @@
 figma.showUI(__html__);
-
+figma.ui.resize(382, 415)
 const setCharactersForTextLayer = async function setCharactersForTextLayer(layer:any, newCharacters:string) {
   await figma.loadFontAsync({ family: layer.fontName.family, style: layer.fontName.style });
   layer.characters = newCharacters;
